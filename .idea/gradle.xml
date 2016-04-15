@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/jokedisplaymodule" />
             <option value="$PROJECT_DIR$/jokejava" />
           </set>
         </option>
@@ -17,6 +18,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/jokedisplaymodule" />
             <option value="$PROJECT_DIR$/jokejava" />
           </set>
         </option>
