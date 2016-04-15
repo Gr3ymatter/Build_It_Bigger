@@ -77,6 +77,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
@@ -145,5 +146,6 @@
     <orderEntry type="library" exported="" name="support-v4-22.1.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-7.3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-7.3.0" level="project" />
+    <orderEntry type="module" module-name="jokejava" exported="" />
   </component>
 </module>
