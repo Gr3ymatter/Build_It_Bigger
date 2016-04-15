@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class JokeProvider {
 
+    private static JokeProvider instance = null;
 
 
-    public static String[] jokesArr = new String[]{
+    public String[] jokesArr = new String[]{
             "It’s hard to explain puns to kleptomaniacs because they always take things literally."
             ," I used to think the brain was the most important organ. Then I thought, look what’s telling me that."
 
@@ -28,7 +29,19 @@ public class JokeProvider {
                 };
 
 
-    public static String getJoke(){
+    private JokeProvider(){
+
+    }
+
+    public static JokeProvider getInstance(){
+        if(instance == null){
+            return new JokeProvider();
+        }
+        else
+            return instance;
+    }
+
+    public String getJoke(){
 
         Random rand = new Random();
         return jokesArr[rand.nextInt(10)];

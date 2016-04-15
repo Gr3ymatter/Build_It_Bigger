@@ -16,8 +16,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        Toast.makeText(this, JokeProvider.getJoke() , Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, JokeProvider.getInstance().getJoke() , Toast.LENGTH_SHORT).show();
     }
 
 
