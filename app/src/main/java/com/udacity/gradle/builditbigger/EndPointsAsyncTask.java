@@ -18,6 +18,9 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     private static MyApi myApiService = null;
     private Context context;
+    private static String config;
+    private TestingCallbackListener mlistener = null;
+
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -40,7 +43,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         }
 
         context = params[0].first;
-        String name = params[0].second;
+        config = params[0].second;
 
         try {
             return myApiService.tellJoke().execute().getData();
@@ -51,10 +54,29 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-
+        if(mlistener != null) {
+            this.mlistener.onComplete(result);
+            return;
+        }
         Intent launchIntent = new Intent(context, JokeDisplayActivity.class);
         launchIntent.putExtra(JokeDisplayActivity.JOKEKEY, result );
         context.startActivity(launchIntent);
 
+    }
+
+    @Override
+    protected void onCancelled() {
+        if(this.mlistener != null){
+            mlistener.onComplete(null);
+        }
+    }
+
+    public EndpointsAsyncTask setListener(TestingCallbackListener listener){
+        this.mlistener = listener;
+        return this;
+    }
+
+    public static interface TestingCallbackListener {
+        public void onComplete(String result);
     }
 }
