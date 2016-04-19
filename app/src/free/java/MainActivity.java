@@ -8,14 +8,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.ads.InterstitialAd;
+import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.R;
+
+/**
+ * Created by Afzal on 4/18/16.
+ */
 
 public class MainActivity extends ActionBarActivity {
 
+    public InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        com.udacity.gradle.builditbigger.MainActivityFragment fm  = (com.udacity.gradle.builditbigger.MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
+
+        mInterstitialAd = fm.mInterstitialAd;
     }
 
     @Override
@@ -42,7 +54,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view){
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, null));
+        if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
+        else
+            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, null));
 
     }
 
