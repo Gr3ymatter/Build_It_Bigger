@@ -29,7 +29,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testAsyncTask()throws InterruptedException{
         EndpointsAsyncTask task = new EndpointsAsyncTask();
 
-        task.setListener(new EndpointsAsyncTask.TestingCallbackListener() {
+        task.setListener(new EndpointsAsyncTask.CallbackListener() {
             @Override
             public void onComplete(String result) {
                 testResult = result;

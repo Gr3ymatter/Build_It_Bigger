@@ -10,6 +10,7 @@ import android.view.View;
 
 
 import com.google.android.gms.ads.InterstitialAd;
+import com.udacity.gradle.builditbigger.MainActivityFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -41,11 +42,6 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void tellJoke(View view){
-            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, null));
-
     }
 
 

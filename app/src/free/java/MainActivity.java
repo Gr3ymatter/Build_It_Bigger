@@ -25,9 +25,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        com.udacity.gradle.builditbigger.MainActivityFragment fm  = (com.udacity.gradle.builditbigger.MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
-
-        mInterstitialAd = fm.mInterstitialAd;
     }
 
     @Override
@@ -52,14 +49,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
 
-        if(mInterstitialAd.isLoaded())
-            mInterstitialAd.show();
-        else
-            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, null));
-
-    }
 
 
 }
