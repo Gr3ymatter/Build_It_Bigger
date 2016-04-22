@@ -10,6 +10,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class ApplicationTest extends AndroidTestCase{
 
+    
     CountDownLatch signal = null;
     String testResult = null;
     @Override
