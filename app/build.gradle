@@ -10,13 +10,14 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
         multiDexEnabled true
     }
 
-    sourceSets{
-        instrumentTest.setRoot('src/androidTest')
+    sourceSets {  //this one may not be needed. But wont hurt.
+        androidTest.setRoot('src/androidTest')
     }
+
 
     buildTypes {
         release {
@@ -50,8 +51,15 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":jokedisplaymodule")
-    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:support-annotations:23.1.1'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+
+    compile 'com.android.support:appcompat-v7:23.1.1'
+   androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+   androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     testCompile 'junit:junit:4.12'
+
     compile project(path: ':backend', configuration: 'android-endpoints')
 
 
