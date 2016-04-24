@@ -20,23 +20,7 @@ allprojects {
 
 
 
-task runTests ( dependsOn: ":backend:appengineRun"){
-
-    project(":backend").afterEvaluate{
-        backend -> backend.extensions.appengine.daemon = true
-    }
-
-
-    doLast{
-        println "started the server!"
-        println "starting test"
-
-    }
-}
-runTests.finalizedBy ":app:connectedCheck"
-
-task completeTests(dependsOn: runTests){
-
-}
-completeTests.finalizedBy ":backend:appengineStop"
-
+task runUdacityTests ( dependsOn: [":backend:appengineRun",
+                                   ":app:connectedCheck",
+                                    ':backend:appengineStop'
+])
